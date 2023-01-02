@@ -3,12 +3,12 @@
     padding: 0px;
     box-sizing: border-box;
     list-style: none;
-    color: var(--mainText);
+    /* color: var(--mainText); */
 }
 :root {
     --bgColor: rgb(65, 65, 65);
     --mainText: #f1f3ff;
-    --windowColor: rgba(65, 65, 65, 0.539);
+    --windowColor: rgba(65, 65, 65, 0.424);
 }
 body {
     background-color: var(--bgColor);
@@ -26,17 +26,20 @@ body {
     display: flex;
     flex-direction: column;
 }
+.mainText {
+    color: var(--mainText);
+}
 .managerContainer, .engineerContainer, .internContainer {
     height: 30vh;
     display: flex;
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    color: black;
 }
 .managerContainer {
     background-color: #19519081;
 }
-
 .engineerContainer {
     background-color: #2bae6886;
 }
@@ -46,8 +49,12 @@ body {
 .manager, .engineer, .intern {
     width: 250px;
     border: 3px solid black;
+    box-shadow: 3px 3px 10px 0px;
+    border-radius: 20px;
+    padding: 10px;
     margin-left: 20px;
     margin-right: 20px;
+    background-color: var(--windowColor);
 }
 .manager {
 
