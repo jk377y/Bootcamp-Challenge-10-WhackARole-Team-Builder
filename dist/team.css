@@ -29,6 +29,12 @@ body {
 .mainText {
     color: var(--mainText);
 }
+.role {
+    text-align: center;
+    font-size: 24px;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
 .managerContainer, .engineerContainer, .internContainer {
     height: 30vh;
     display: flex;
