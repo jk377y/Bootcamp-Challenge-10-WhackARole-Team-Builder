@@ -12,6 +12,12 @@ const Engineer = require('./lib/engineer')  // importing data from engineer.js
 const Intern = require('./lib/intern')  // importing data from intern.js
 const htmlGenerator = require('./lib/htmlGenerator')  // importing data from htmlGenerator.js
 
+// need containers to hold all of the created employees
+let managers = []
+let engineers = []
+let interns = []
+
+// manager inputs
 const managerInputs = [
     {
         name: 'managerName',
@@ -21,7 +27,7 @@ const managerInputs = [
             if(value) {         // if there is an input (truthy), no problems
                 return true
             } else {            // if there is no input (falsey), get message
-                return 'Your team MUST have a manager.'
+                return 'Every employee must have a name.'
             }},
     },
     {
@@ -58,3 +64,121 @@ const managerInputs = [
             }},  
     }
 ];
+// inputs to initiate creating another employee
+const addAnotherEmployee = [
+    {
+        name: 'addAnotherEmployee',
+        type: 'list',
+        message: 'Would you like to add another team member?',
+        choices: ['Yes, I would like to add an Engineer', 'Yes, I would like to add an Intern', 'No, my team is complete.'],
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true
+            } else {            // if there is no input (falsey), get message
+                return 'You must choose one of the options.'
+            }},
+    }
+];
+// Engineer inputs
+const engineerInputs = [
+    {
+        name: 'engineerName',
+        type: 'input',
+        message: 'What is the engineer\'s name?',
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true
+            } else {            // if there is no input (falsey), get message
+                return 'Every employee must have a name.'
+            }}, 
+    },
+    {
+        name: 'engineerId',
+        type: 'input',
+        message: 'What is the engineer\'s ID #?',
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true
+            } else {            // if there is no input (falsey), get message
+                return 'Every employee must have an ID #.'
+            }},
+    },
+    {
+        name: 'engineerEmail',
+        type: 'input',
+        message: 'What is the engineer\'s email address?',
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true
+            } else {            // if there is no input (falsey), get message
+                return 'Every employee must have an email address.'
+            }},
+    },
+    {
+        name: 'engineerGithub',
+        type: 'input',
+        message: 'What is the engineer\'s GitHub username?',
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true
+            } else {            // if there is no input (falsey), get message
+                return 'Every engineer must have a GitHub username.'
+            }},  
+    }
+];
+// Intern inputs
+const internInputs = [
+    {
+        name: 'internName',
+        type: 'input',
+        message: 'What is the intern\'s name?',
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true
+            } else {            // if there is no input (falsey), get message
+                return 'Every employee must have a name.'
+            }}, 
+    },
+    {
+        name: 'internId',
+        type: 'input',
+        message: 'What is the intern\'s ID #?',
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true
+            } else {            // if there is no input (falsey), get message
+                return 'Every employee must have an ID #.'
+            }},
+    },
+    {
+        name: 'internEmail',
+        type: 'input',
+        message: 'What is the intern\'s email address?',
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true
+            } else {            // if there is no input (falsey), get message
+                return 'Every employee must have an email address.'
+            }},
+    },
+    {
+        name: 'internSchool',
+        type: 'input',
+        message: 'What school does the Intern attend?',
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true
+            } else {            // if there is no input (falsey), get message
+                return 'Every Intern must be enrolled in a school.'
+            }},  
+    }
+];
+// need to push the answers for each employee into create "Role" object
+function createManager() {
+    inquirer.prompt(managerInputs)
+        .then(answers => {
+            const manager = new Manager(answers.managerName,answers.managerId, answers.managerEmail, answers.managerOfficeNumber)
+            managers.push(manager);
+        })
+};
+createManager();
