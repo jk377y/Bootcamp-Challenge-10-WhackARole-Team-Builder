@@ -64,21 +64,6 @@ const managersInputs = [
             }},  
     }
 ];
-// inputs to initiate creating another employee
-const addAnotherEmployee = [
-    {
-        name: 'addAnotherEmployee',
-        type: 'list',
-        message: 'Would you like to add another team member?',
-        choices: ['Yes, I would like to add an Engineer', 'Yes, I would like to add an Intern', 'No, my team is complete.'],
-        validate: (value) => {   // this will force the user to input a value
-            if(value) {         // if there is an input (truthy), no problems
-                return true;
-            } else {            // if there is no input (falsey), get message
-                return 'You must choose one of the options.';
-            }},
-    }
-];
 // Engineer inputs
 const engineerInputs = [
     {
@@ -173,7 +158,22 @@ const internInputs = [
             }},  
     }
 ];
-// need to push the answers for each employee into create "Role" object
+// inputs to initiate creating another employee
+const addAnotherEmployee = [
+    {
+        name: 'addAnotherEmployee',
+        type: 'list',
+        message: 'Would you like to add another team member?',
+        choices: ['Yes, I would like to add an Engineer', 'Yes, I would like to add an Intern', 'No, my team is complete.'],
+        validate: (value) => {   // this will force the user to input a value
+            if(value) {         // if there is an input (truthy), no problems
+                return true;
+            } else {            // if there is no input (falsey), get message
+                return 'You must choose one of the options.';
+            }},
+    }
+];
+
 // using Manager inputs to create a new Manager instance
 function createManager() {
     inquirer.prompt(managersInputs)
@@ -183,7 +183,6 @@ function createManager() {
             createTeam();  // need to call this after each employee entry so that it can start the Loop or reloop if necessary on createTeam
         });
 };
-
 
 // using Engineer inputs to create a new Engineer instance
 function createEngineer() {
