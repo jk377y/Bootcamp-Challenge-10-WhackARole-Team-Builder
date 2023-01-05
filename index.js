@@ -13,7 +13,7 @@ const Intern = require('./lib/intern');  // importing data from intern.js
 const htmlGenerator = require('./lib/htmlGenerator');  // importing data from htmlGenerator.js
 
 // need containers to hold all of the created employees
-let managers = [];
+let manager = [];
 let engineers = [];
 let interns = [];
 
@@ -179,7 +179,7 @@ function createManager() {
     inquirer.prompt(managerInputs)
         .then(answers => {
             const manager = new Manager(answers.managerName,answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
-            managers.push(manager);
+            manager.push(manager);
         });
 };
 createManager();
@@ -205,4 +205,6 @@ createIntern();
 function createTeam() {
     // if yes, add employees
     // if no, complete team and print html
-}
+};
+
+module.exports = index;
