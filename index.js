@@ -180,31 +180,45 @@ function createManager() {
         .then(answers => {
             const manager = new Manager(answers.managerName,answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
             manager.push(manager);
+            createTeam();  // need to call this after each employee entry so that it can start the Loop or reloop if necessary on createTeam
         });
 };
-createManager();
+
+
 // using Engineer inputs to create a new Engineer instance
 function createEngineer() {
     inquirer.prompt(engineerInputs)
         .then(answers => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
             engineers.push(engineer);
+            createTeam();  // need to call this after each employee entry so that it can reloop if necessary
         });
 };
-createEngineer();
+
 // using Intern inputs to create a new Intern instance
 function createIntern() {
     inquirer.prompt(internInputs)
         .then(answers => {
             const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
             interns.push(intern);
+            createTeam();  // need to call this after each employee entry so that it can reloop if necessary
         });
 };
-createIntern();
+
 // need to combine all created employees into my "team" container
 function createTeam() {
-    // if yes, add employees
-    // if no, complete team and print html
+    inquirer.prompt(addAnotherEmployee)
+        .then(answers => {
+        if (answers.addAnotherEmployee === 'Yes, I would like to add an Engineer') {
+            createEngineer();
+        } else if (answers.addAnotherEmployee === 'Yes, I would like to add an Intern') {
+            createIntern();
+        } else {
+            fs.write('myTeam.html', htmlGenerator(manager, engineers, interns));
+        }
+    })
 };
 
-module.exports = index;
+createManager();  // this will be the only thing called outside of the functions so that it will always run first
+            // at the end of the manager function it will run createTeam and loop for each additional employee that
+            // is determined to be needed
