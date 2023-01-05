@@ -13,12 +13,12 @@ const Intern = require('./lib/intern');  // importing data from intern.js
 const htmlGenerator = require('./lib/htmlGenerator');  // importing data from htmlGenerator.js
 
 // need containers to hold all of the created employees
-let managers = [];
-let engineers = [];
-let interns = [];
+const managers = [];
+const engineers = [];
+const interns = [];
 
 // manager inputs
-const managersInputs = [
+const managerInputs = [
     {
         name: 'managerName',
         type: 'input',
@@ -176,9 +176,9 @@ const addAnotherEmployee = [
 
 // using Manager inputs to create a new Manager instance
 function createManager() {
-    inquirer.prompt(managersInputs)
+    inquirer.prompt(managerInputs)
         .then(answers => {
-            const manager = new Manager(answers.managerName,answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber)
             managers.push(manager);
             createTeam();  // need to call this after each employee entry so that it can start the Loop or reloop if necessary on createTeam
         });
@@ -213,11 +213,12 @@ function createTeam() {
         } else if (answers.addAnotherEmployee === 'Yes, I would like to add an Intern') {
             createIntern();
         } else {
-            fs.write('myTeam.html', htmlGenerator(managers, engineers, interns));
+            fs.writeFileSync("myTeam.html", htmlGenerator(managers, engineers, interns), (error) => {
+                error ? console.log(error) : console.log('Congratulations! You have created your myTeam.html file.')
+            } );
         }
     })
 };
-
 createManager();  // this will be the only thing called outside of the functions so that it will always run first
             // at the end of the manager function it will run createTeam and loop for each additional employee that
             // is determined to be needed

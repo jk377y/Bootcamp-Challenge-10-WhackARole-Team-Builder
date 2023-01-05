@@ -7,8 +7,8 @@
 }
 :root {
     --bgColor: rgb(65, 65, 65);
-    --mainText: #f1f3ff;
-    --windowColor: rgba(65, 65, 65, 0.424);
+    --mainText: #ffffffda;
+    --windowColor: rgba(65, 65, 65, 0.438);
 }
 body {
     background-color: var(--bgColor);
@@ -28,6 +28,8 @@ body {
 }
 .mainText {
     color: var(--mainText);
+    font-weight: bold;
+    font-size: 18px;
 }
 .role {
     border: 1px solid black;
@@ -82,4 +84,14 @@ body {
 }
 .underline {
     text-decoration: underline;
+}
+.email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-decoration: underline;
+    font-size: 18px;
+    color: rgb(0, 225, 255);
 }
