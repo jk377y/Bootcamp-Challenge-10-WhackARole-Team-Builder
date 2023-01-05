@@ -13,12 +13,12 @@ const Intern = require('./lib/intern');  // importing data from intern.js
 const htmlGenerator = require('./lib/htmlGenerator');  // importing data from htmlGenerator.js
 
 // need containers to hold all of the created employees
-let manager = [];
+let managers = [];
 let engineers = [];
 let interns = [];
 
 // manager inputs
-const managerInputs = [
+const managersInputs = [
     {
         name: 'managerName',
         type: 'input',
@@ -176,10 +176,10 @@ const internInputs = [
 // need to push the answers for each employee into create "Role" object
 // using Manager inputs to create a new Manager instance
 function createManager() {
-    inquirer.prompt(managerInputs)
+    inquirer.prompt(managersInputs)
         .then(answers => {
             const manager = new Manager(answers.managerName,answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
-            manager.push(manager);
+            managers.push(manager);
             createTeam();  // need to call this after each employee entry so that it can start the Loop or reloop if necessary on createTeam
         });
 };
@@ -214,7 +214,7 @@ function createTeam() {
         } else if (answers.addAnotherEmployee === 'Yes, I would like to add an Intern') {
             createIntern();
         } else {
-            fs.write('myTeam.html', htmlGenerator(manager, engineers, interns));
+            fs.write('myTeam.html', htmlGenerator(managers, engineers, interns));
         }
     })
 };
