@@ -25,12 +25,13 @@ You need to import access from the 'path' module. This provides a way to work wi
 <br>https://drive.google.com/file/d/1KlcnK5b4SbfIgqCkOAv33-SrWcwM-J3y/view<br><br>
 
 While using VSCode, use the integrated terminal feature while in the root directory where the index.js file is located, run the command [node index.js]. Answer the questions.  Once you are satisfied with the team you have built, you can choose the option to build your team. This will exit the program and generate an HTML document.<br>
-![screenshot of html being generated after answering questions](./dist/images/index.JPG)<br>
+<img src="./dist/images/index.JPG" alt="screenshot of html being generated after answering questions" width=900px><br>
+<img src="./dist/images/html.JPG" alt="screenshot of the generated html in the browser" width=900px><br>
 
 ## Testing
 Open the integrated terminal in VS Code and navigate to the root directory where the index.js file is located.<br>
 You can start the test by running [npm run test]<br>
-![screenshot of testing being ran successfully](./dist/images/tests.JPG)
+<img src="./dist/images/tests.JPG" alt="screenshot of testing being ran successfully" width=900px><br>
 
 
 ## Questions
