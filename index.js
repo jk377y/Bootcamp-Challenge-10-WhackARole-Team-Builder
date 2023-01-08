@@ -213,7 +213,7 @@ function createTeam() {
         } else if (answers.addAnotherEmployee === 'Yes, I would like to add an Intern') {
             createIntern();
         } else {
-            fs.writeFileSync("myTeam.html", htmlGenerator(managers, engineers, interns), (error) => {
+            fs.writeFileSync(path.join(__dirname, "/dist/myTeam.html"), htmlGenerator(managers, engineers, interns), (error) => {
                 error ? console.log(error) : console.log('Congratulations! You have created your myTeam.html file.')
             } );
         }
