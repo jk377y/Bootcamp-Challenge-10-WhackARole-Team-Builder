@@ -1,6 +1,6 @@
 // npm i jest
 // npm i inquirer@8.2.4   specified in instructions
-// npm i inquirer@9.1.4  is newer version but may not run with common js syntax and does not use the standard let inquirer = require('inquirer') to import
+// npm i inquirer@9.1.4  is newer version but may not run with common js syntax and does not use the standard const inquirer = require('inquirer') to import
 
 //! importing all of the files that will be needed to generate the team
 const fs = require('fs');  // built into Node to handle file system
@@ -213,9 +213,13 @@ function createTeam() {
         } else if (answers.addAnotherEmployee === 'Yes, I would like to add an Intern') {
             createIntern();
         } else {
-            fs.writeFileSync(path.join(__dirname, "/dist/myTeam.html"), htmlGenerator(managers, engineers, interns), (error) => {
-                error ? console.log(error) : console.log('Congratulations! You have created your myTeam.html file.')
-            } );
+            fs.writeFile(path.join(__dirname, "/dist/myTeam.html"), htmlGenerator(managers, engineers, interns), (error) => {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log('Congratulations! You have created your myTeam.html file.');
+                }
+              });
         }
     })
 };
