@@ -1,5 +1,5 @@
 const Manager = require('../lib/manager')
-const manager = new Manager('lucifer','666','ruler@downUnder.com', '1337')
+const manager = new Manager('lucifer','666','ruler@downUnder.com', '1337', 'manager')
 
 
 test('Constructs a new instance of Manager class', () => {
@@ -38,9 +38,18 @@ test('testing for the .not of the correct email value', () => {
     expect(manager.getEmail()).not.toBe('ruler@gmail.com');
 })
 
+
 test('Check to see if the getOfficeNumber() works', () => {
     expect(manager.getOfficeNumber()).toBe('1337');
 })
-test('testing for the .not of the correct email value', () => {
+test('testing for the .not of the correct officeNumber value', () => {
     expect(manager.getOfficeNumber()).not.toBe('305');
+})
+
+
+test('Check to see if the getRole() works', () => {
+    expect(manager.getRole()).toBe('manager');
+})
+test('testing for the .not of the correct role value', () => {
+    expect(manager.getRole()).not.toBe('boss');
 })
