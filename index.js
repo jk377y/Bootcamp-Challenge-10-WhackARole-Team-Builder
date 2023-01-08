@@ -4,8 +4,8 @@
 
 //! importing all of the files that will be needed to generate the team
 const fs = require('fs');  // built into Node to handle file system
-const inquirer = require('inquirer');  //  inquirer package provides the user interface and the inquiry session flow
 const path = require('path');  // built into Node to handle file paths
+const inquirer = require('inquirer');  //  inquirer package provides the user interface and the inquiry session flow
 const Employee = require('./lib/employee');  // importing data from employee.js
 const Manager = require('./lib/manager'); // importing data from manager.js
 const Engineer = require('./lib/engineer');  // importing data from engineer.js

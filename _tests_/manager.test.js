@@ -12,6 +12,7 @@ test('Get the property values from the Manager object', () => {
     expect(manager.id).toBe('666');
     expect(manager.email).toBe('ruler@downUnder.com');
     expect(manager.officeNumber).toBe('1337');
+    expect(manager.role).toBe('manager');
 })
 
 
