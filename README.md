@@ -10,8 +10,8 @@ By entering user inputs from the command line, I am able to build a team of 1 ma
 - [Usage](#usage)
 - [Testing](#testing)
 - [Questions](#questions)
-- [License](#license)
 - [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
 You must have node.js installed on your system.<br>
