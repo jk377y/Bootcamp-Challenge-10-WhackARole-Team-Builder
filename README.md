@@ -22,7 +22,7 @@ You need to import access from the 'path' module. This provides a way to work wi
 
 ## Usage
 <br>Video Walkthrough Link
-<br>https://drive.google.com/file/d/1KlcnK5b4SbfIgqCkOAv33-SrWcwM-J3y/view<br><br>
+<br>https://drive.google.com/file/d/1ICPI2OT8n1BinQNu2tJpJRmQLBHdlgcX/view<br><br>
 
 While using VSCode, use the integrated terminal feature while in the root directory where the index.js file is located, run the command [node index.js]. Answer the questions.  Once you are satisfied with the team you have built, you can choose the option to build your team. This will exit the program and generate an HTML document.<br>
 <img src="./dist/images/index.JPG" alt="screenshot of html being generated after answering questions" width=900px><br>
