@@ -42,7 +42,7 @@ For Questions, I can be reached at the following:
 
 ## Contributing
 NPM - npmjs.com (for research and documentation referencing)<br>
-You can help support me by donating with Cash App @ $JK377Y
+You can help support me by donating with 💵Cash App💵 @ 💵$JK377Y💵
 
 ## License
 License: MIT
